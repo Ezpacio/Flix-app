@@ -1,7 +1,9 @@
-// Api Key: d087f4c33449d2dc1505b6a5b29961e1
-
 const global = {
-    currentPage: window.location.pathname
+    currentPage: window.location.pathname,
+    api:{
+        API_KEY : 'd087f4c33449d2dc1505b6a5b29961e1',
+        API_URL : 'https://api.themoviedb.org/3/'
+    }
 }
 
 // Display 20 most populer TV shows
@@ -258,8 +260,8 @@ function displayBackgroundImage(type, backgroundPath){
 
 // Api ===>
 const fetchApiData = async (endpoint) => {
-    const API_KEY = 'd087f4c33449d2dc1505b6a5b29961e1';
-    const API_URL = 'https://api.themoviedb.org/3/';
+    const API_KEY = global.api.API_KEY;
+    const API_URL = global.api.API_URL;
     showSpinner()
     const response = await fetch(`${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US`)
     const data = await response.json();
